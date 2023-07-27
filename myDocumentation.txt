@@ -1,0 +1,24 @@
+/* after importing, we can use the components as regular html elements */
+
+/**In a React component we cannot return more than 1 element. To overcome this problem, we can wrap the entire return expression inside a <div> or another element, or even better we can use Fragments(<></>) */
+// import { Fragment } from "react";  /**  not necessary if we use the shorter annotation for fragment:  <></>  */
+
+/**In JSX we use curly braces to render data dynamically. */
+
+/**JS arrays have the map() method, for mapping or converting each item to an item of a different type. JSX don't support for loops, so to cycle over each item and render the data dynamically we use the map method. */
+
+// Conditional rendering
+{items.length === 0 && <p>No item found</p>}
+{/* if(items.length === 0) is true, <p>No item found</p> will be rendered, otherwise nothing will be rendered.*/}
+
+/* When rendering a list of itemes using the map method, each child/item in a list should have a unique "key" property that uniquely identifies the item. React need this key to keep track of the item, so when we add or remove items dynamically, React knows which part of the page should be updated. In a real world application each item has a property "ID". */
+
+{/* In React each item has a proprety called "onClick"*/}
+
+/* a variable with local visibility to the function component, React can't see/use it.
+  To solve this problem we use the React State hook, a built-in function that tells React that we are saving data that might change over time. */
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  /* Returns a stateful value, and a function to update it.*/
+
+
+
