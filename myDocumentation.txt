@@ -20,5 +20,9 @@
   const [selectedIndex, setSelectedIndex] = useState(-1);
   /* Returns a stateful value, and a function to update it.*/
 
+/* Passing Data via Props (propreties), Reusable component */
+/**Props are the inputs to our components. First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
+{ itemes: [], heading: string }. To that we use the TS interface: */
+
 
 
