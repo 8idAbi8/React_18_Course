@@ -18,11 +18,18 @@
 /* a variable with local visibility to the function component, React can't see/use it.
   To solve this problem we use the React State hook, a built-in function that tells React that we are saving data that might change over time. */
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  /* Returns a stateful value, and a function to update it.*/
+/* Returns a stateful value, and a function to update it.*/
 
-/* Passing Data via Props (propreties), Reusable component */
+/* Passing data and functions via Props, improves component reusability */
+
 /**Props are the inputs to our components. First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
 { itemes: [], heading: string }. To that we use the TS interface: */
 
+/**Passing Functions via Props:
+ * We don't want to insert the logic of the function inside the component, to preserve its reusability.
+ * So we need a mechanism to notify the consumer or the parent of this component that an item is selected.
+ * To implement this, we need to add a function as a proprety in the interface */
+
+/**The props interface must be defined within the component that uses it. */
 
 

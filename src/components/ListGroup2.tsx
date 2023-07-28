@@ -25,7 +25,7 @@ function ListGroup2() {
             }
             key={item}
             onClick={() => {
-              setSelectedIndex(index);
+              setSelectedIndex(index); // on click, activates the item with the selected index
             }}
           >
             {item}
