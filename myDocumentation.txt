@@ -20,9 +20,10 @@
   const [selectedIndex, setSelectedIndex] = useState(-1);
 /* Returns a stateful value, and a function to update it.*/
 
-/* Passing data and functions via Props, improves component reusability */
+/* Passing data and functions via Props, improves component reusability 
+Props are the inputs or arguments passed to our components. We should tread Props as immutable.(Functional Programming Principle) */
 
-/**Props are the inputs to our components. First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
+/*First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
 { itemes: [], heading: string }. To that we use the TS interface: */
 
 /**Passing Functions via Props:
@@ -31,5 +32,13 @@
  * To implement this, we need to add a function as a proprety in the interface */
 
 /**The props interface must be defined within the component that uses it. */
+
+/** Passing children*/
+// special prop that all components support called "children"
+/**Alert component accepts a single prop called children, which represents the content enclosed in <Alert>...</Alert> tags */
+
+// shortcat rafce (ES7+ extension)
+
+
 
 

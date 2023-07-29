@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 /* Passing data and functions via Props, improves component reusability */
 
-/**Props are the inputs to our components. First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
+/**Props are the inputs or arguments passed to our components. We should tread Props as immutable.
+ * First we need to decide the shape of the input to this component: in our case we want to pass on object with 2 properties: 
 { itemes: [], heading: string }. To that we use the TS interface: */
 
 /**Passing Functions via Props:
