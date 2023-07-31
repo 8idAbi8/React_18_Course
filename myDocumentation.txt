@@ -39,6 +39,8 @@ Props are the inputs or arguments passed to our components. We should tread Prop
 
 // shortcat rafce (ES7+ extension)
 
+//  Hooks can only be called inside of the body of a function component.
+
 
 
 

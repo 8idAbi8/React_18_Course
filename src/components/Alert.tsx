@@ -1,5 +1,3 @@
-// shortcat rafce (ES7+)
-
 import { ReactNode } from "react";
 
 interface Props {
