@@ -1,18 +1,27 @@
 import { useState } from "react";
 
-const MyButtonComponent = () => {
+interface Props {
+  //function
+  onSelectButton: (buttonText: string, setbuttonText: any) => void;
+}
+
+const MyButtonComponent = ({ onSelectButton }: Props) => {
   // state hook
   const [buttonText, setbuttonText] = useState("2+2=");
 
-  // handle event function
-  const handleClick = () => {
-    if (buttonText === "2+2=") setbuttonText("3+1=");
-    else setbuttonText("2+2=");
-  };
-
   return (
     <>
-      <button type="button" className="btn btn-success" onClick={handleClick}>
+      <button
+        type="button"
+        className={
+          buttonText === "2+2="
+            ? "btn btn-outline-success btn-lg"
+            : "btn btn-outline-primary btn-lg"
+        }
+        onClick={() => {
+          onSelectButton(buttonText, setbuttonText);
+        }}
+      >
         {buttonText}
       </button>
     </>
