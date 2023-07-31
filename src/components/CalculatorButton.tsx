@@ -1,10 +1,12 @@
 import { useState } from "react";
-/**This React component is a calculator button that generates random addition problems with two random numbers and updates its color on each click. It utilizes state hooks to manage the random numbers and the button's color class for dynamic content and interactive behavior. */
+/**This React component is a dynamic calculator-like button that performs addition based on the provided num1 and num2 props. It utilizes useState to manage the button's content and color, and the sumFunc function ensures correct addition operation. */
 
-/**Number */
-function getRandomNumber(): string {
-  // Get a random number between 1 and 10 (inclusive)
-  return (Math.floor(Math.random() * 10) + 1).toString();
+interface Props {
+  color: string;
+  num1: number;
+  num2: number;
+  handleNumberChange: (nsetRandomNumbers: any) => void;
+  handleChangeButtonColor: (setButtonColor: any) => void;
 }
 
 const sumFunc = (inputString: string): number | null => {
@@ -22,44 +24,25 @@ const sumFunc = (inputString: string): number | null => {
       return sum;
     }
   }
-
   // Return null if the string is not in the correct format or if the numbers are invalid
   return null;
 };
 
-/**Color */
-const getRandomColor = () => {
-  const colors = [
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "info",
-    "dark",
-  ];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-};
-
 // Render Function
-const CalculatorButton = () => {
+const CalculatorButton = ({
+  color,
+  num1,
+  num2,
+  handleNumberChange,
+  handleChangeButtonColor,
+}: Props) => {
   // numbers state hook
   const [randomNumbers, setRandomNumbers] = useState(
-    getRandomNumber() + "+" + getRandomNumber() + "="
-  );
-
-  const handleNumberChange = () => {
-    setRandomNumbers(getRandomNumber() + "+" + getRandomNumber() + "=");
-  };
+    num1 + " + " + num2 + " = "
+  ); // initial addition
 
   // colors state hook
-  const [buttonColorClass, setButtonColorClass] = useState("primary"); // initial color
-
-  const handleChangeButtonColor = () => {
-    const randomColorClass = getRandomColor();
-    setButtonColorClass(randomColorClass);
-  };
+  const [buttonColorClass, setButtonColor] = useState("primary"); // initial color
 
   return (
     <>
@@ -67,8 +50,8 @@ const CalculatorButton = () => {
         type="button"
         className={"btn btn-lg btn-outline-" + buttonColorClass}
         onClick={() => {
-          handleNumberChange();
-          handleChangeButtonColor();
+          handleNumberChange(setRandomNumbers);
+          handleChangeButtonColor(setButtonColor);
         }}
       >
         {randomNumbers + sumFunc(randomNumbers)}
