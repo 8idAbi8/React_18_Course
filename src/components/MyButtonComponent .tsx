@@ -3,9 +3,10 @@ import { useState } from "react";
 interface Props {
   //function
   onSelectButton: (buttonText: string, setbuttonText: any) => void;
+  buttonClicked: () => void;
 }
 
-const MyButtonComponent = ({ onSelectButton }: Props) => {
+const MyButtonComponent = ({ onSelectButton, buttonClicked }: Props) => {
   // state hook
   const [buttonText, setbuttonText] = useState("2+2=");
 
@@ -20,6 +21,7 @@ const MyButtonComponent = ({ onSelectButton }: Props) => {
         }
         onClick={() => {
           onSelectButton(buttonText, setbuttonText);
+          buttonClicked();
         }}
       >
         {buttonText}

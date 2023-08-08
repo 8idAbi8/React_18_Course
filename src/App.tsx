@@ -1,47 +1,31 @@
-import CalculatorButton from "./components/CalculatorButton";
+import { useState } from "react";
+import Alert from "./components/Alert";
+import MyButtonComponent from "./components/MyButtonComponent ";
 
-/**Color */
-const getRandomColor = () => {
-  const colors = [
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "warning",
-    "info",
-    "dark",
-  ];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
+// handle event function
+const handleClick = (buttonText: string, setbuttonText: any) => {
+  if (buttonText === "2+2=") setbuttonText("3+1=");
+  else setbuttonText("2+2=");
 };
-
-const handleChangeButtonColor = (setButtonColor: any) => {
-  const randomColor = getRandomColor();
-  setButtonColor(randomColor);
-};
-
-/**Number */
-const handleNumberChange = (setRandomNumbers: any) => {
-  setRandomNumbers(getRandomNumber() + " + " + getRandomNumber() + " = ");
-};
-
-function getRandomNumber(): number {
-  // Get a random number between 1 and 10 (inclusive)
-  return Math.floor(Math.random() * 10) + 1;
-}
 
 /**Render function */
 function App() {
+  const [alertVisible, setAlertVisibility] = useState(false);
+
   return (
-    <>
-      <CalculatorButton
-        color={getRandomColor()}
-        num1={getRandomNumber()}
-        num2={getRandomNumber()}
-        handleChangeButtonColor={handleChangeButtonColor}
-        handleNumberChange={handleNumberChange}
+    <div>
+      {alertVisible && (
+        <Alert
+          children={"Click X to remove Alert"}
+          onClose={() => setAlertVisibility(false)}
+        />
+      )}
+
+      <MyButtonComponent
+        onSelectButton={handleClick}
+        buttonClicked={() => setAlertVisibility(true)}
       />
-    </>
+    </div>
   );
 }
 
